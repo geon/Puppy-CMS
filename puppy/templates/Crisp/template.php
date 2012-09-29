@@ -8,36 +8,29 @@
 
 		<div id="<?php print(PAGE_ID); ?>">
 
-			<div id="Center">
-				<div id="Header">
-					<ul class="Menu">
-						<li><a href="quinoa">Quinoa</a></li>
-						<li><a href="lunch">Lunch</a></li>
-						<li><a href="./">Hem</a></li>
-						
-						<?php if($Admin->IslogedIn()){ ?>
-							<li><a href="puppy/?logOut">Logga ut</a></li>
-						<?php } ?>
+			<div class="center header">
+				<ul class="menu">
+					<li><a href="./">About Us</a></li>
+					<li><a href="lunch">Our Mission</a></li>
+					<li><a href="quinoa">Green Environment</a></li>
+					
+					<?php if($Admin->IslogedIn()){ ?>
+						<li><a href="puppy/?logOut">Logga ut</a></li>
+					<?php } ?>
 
-					</ul>
-					<a class="Logo" href="./"><img src="nancy's-logo.gif" alt="logo" /></a>
-				</div>
+				</ul>
+			</div>
 
-				<div id="Main">
-					<div id="Content">
-						<?php renderContent(); ?>
-					</div>
-				</div>
+			<div id="content" class="center">
+				<?php renderContent(); ?>
+			</div>
 
-				<div id="Footer">
-					<ul class="Menu">
-						<li class="address" title="Visa karta"><a href="http://www.hitta.se/ViewDetailsPink.aspx?vad=nancys&amp;var=storgatan+3+s%f6dert%e4lje&amp;Vkiid=X3ubiW1Dw78HAJNLuX1FmQ%253d%253d&amp;Vkid=22890789&amp;isAlternateNumberResult=False">Storgatan 3, 151 73 Södertälje</a></li>
-						<li class="phone" title="Ring oss">08-550 339 55</li>
-						<li class="email" title="Skicka e-post"><a href="mailto:info@nancysfreshfood.se">info@nancysfreshfood.se</a></li>
-						<li class="franchise" title="Bli en franchisetagare!"><a href="franchise">Franchise</a></li>
-					</ul>
-				</div>
-
+			<div class="footer">
+				<ul class="menu">
+					<li class="address" title="Show map"><a href="https://maps.google.com/maps?q=560+25+Bottnaryd,+Sweden&hl=en&ie=UTF8&sll=57.771788,13.825738&sspn=0.03996,0.033731&oq=560+25+bottnaryd&t=h&hnear=Bottnaryd,+J%C3%B6nk%C3%B6ping+County,+Sweden&z=15">Some Street, 560 25 Bottnaryd, Sweden</a></li>
+					<li class="phone" title="Call me">1234 - 567 890</li>
+					<li class="email" title="E-mail me"><a href="mailto:victor@topmost.se">victor@topmost.se</a></li>
+				</ul>
 			</div>
 		</div>
 	</body>

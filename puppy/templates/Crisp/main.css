@@ -1,45 +1,4 @@
 
-div.bunny-article div.left{ float: left; margin: 0 1em 0.5em 0; }
-div.bunny-article div.right{ float: right; margin: 0 0 0.5em 1em; }
-div.bunny-article div.middle{ clear: both;}
-div.bunny-article div.image p{ font-size:70%; margin:0; text-align:center;}
-
-div.bunny-article {
-	font-family: verdana, sans-serif;
-	font-size:100%;
-	line-height:1.125em; /* 16x1.125=18px */
-	margin:0;
-	padding: 18px;
-
-  width: 500px;
-  margin: 0 auto;
-}
-
-div.bunny-article h1,
-div.bunny-article h2,
-div.bunny-article h3{
-	font-weight:normal;	
-	color: #555;
-}
-
-div.bunny-article h1 {
-	font-family: georgia, serif;
-	font-size: 1.875em; /* 16x1.875=30px */
-	line-height: 1.636em;/* 16x1.636=36px */
-	margin: 0;
-}
-
-div.bunny-article h2 {
-	font-size: 1.125em; /* 16x1.125=18px */
-	margin:1em 0; /* 18x1=18px */
-}
-
-div.bunny-article p {
-	font-size: 0.875em; /* 16x0.875=14px */
-	margin: 1.286em 0; /* 14x1.286=18px (same as line-height) */
-}
-
-
 body {
 	font-family: verdana, sans-serif;
 	font-size:100%;
@@ -48,9 +7,14 @@ body {
 	padding: 18px;
 }
 
+div.center {
+	width: 600px;
+	margin: 0 auto;
+}
 
-h1, h2, h3 {
+h1, h2, h3{
 	font-weight:normal;	
+	color: #555;
 }
 
 h1 {
@@ -69,3 +33,59 @@ p {
 	font-size: 0.875em; /* 16x0.875=14px */
 	margin: 1.286em 0; /* 14x1.286=18px (same as line-height) */
 }
+
+
+
+
+
+
+
+div.footer{
+	margin: 50px 0 30px 0;
+
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	position: relative;
+}
+
+div.footer ul.menu{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	clear: left;
+	float: left;
+	position: relative;
+	left: 50%;
+	text-align: center;
+}
+
+div.footer ul.menu li{
+	padding: 0;
+	margin: 0 10px;
+	font-weight: normal;
+	font-size: 13px;
+	letter-spacing: 0.03em;
+	color: #555;
+
+	display: block;
+	float: left;
+	position: relative;
+	right: 50%;
+}
+
+div.footer ul.menu li a{
+	color: #555;
+	text-decoration: none;
+
+	display: block;
+}
+
+div.footer ul.menu li.address{padding-left: 18px; background: url(icon-address.gif) no-repeat;}
+div.footer ul.menu li.phone{padding-left: 18px; background: url(icon-phone.gif) no-repeat;}
+div.footer ul.menu li.email{padding-left: 20px; background: url(icon-email.gif) no-repeat;}
+
+
+
+
