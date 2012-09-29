@@ -1,0 +1,4 @@
+RewriteEngine On 
+
+# some-good-search-friendly-keywords -> index.php?PageID=1234
+RewriteRule ^([-a-z]+)$ index.php?PageID=$1

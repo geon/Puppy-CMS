@@ -1,0 +1,9 @@
+ul#foodtabs li{
+	background: url(foodtab-bg.gif);
+}
+
+ul#foodtabs li div.mask{
+	background: url(foodtab-mask.gif);
+}
+
+
