@@ -1,0 +1,34 @@
+/*
+
+  This file will be included in the editor when an
+  article is beeing edited.
+
+  This file should style the element "div.bunny-article"
+  in a suitable color scheme for editing.
+
+  The fonts and all meassurements should be identical
+  to the values found in the "real" css file.
+
+  Make sure to use a bright background and only specify
+  the style for elements inside "div.bunny-article".
+
+*/
+
+
+
+/* Article layout and fonts are defined centrally in this file. */
+@import url(article.css);
+
+
+/* The colors are identical to the "light-gray" variation, but are only defined inside the article div. */
+
+div.bunny-article {
+	background: #fff;
+	color: #333;
+}
+
+div.bunny-article h1,
+div.bunny-article h2,
+div.bunny-article h3{
+	color: #555;
+}

@@ -1,0 +1,10 @@
+body{
+	background: #333;
+	color: #ddd;
+}
+
+div.bunny-article h1,
+div.bunny-article h2,
+div.bunny-article h3{
+	color: #eee;
+}
