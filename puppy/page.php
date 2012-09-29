@@ -2,7 +2,7 @@
 
 
 	// Figure out what page ID to use.
-	$PageID = isset($_GET['PageID']) ? $_GET['PageID'] : '';
+	$PageID = isset($_GET['ID']) ? $_GET['ID'] : '';
 	if(!preg_match('/[-a-z]+/', $PageID))
 		$PageID = 'INDEX';
 	if(!is_file('pages/'.$PageID))
@@ -29,7 +29,7 @@
 	);
 
 	require_once('class_login.php');
-	$Admin = new cLogIn('Admin');
+	$Admin = new cLogIn('admin');
 
 
 
@@ -57,7 +57,7 @@
 						<li><a href="./">Hem</a></li>
 						
 						<?php if($Admin->IslogedIn()){ ?>
-							<li><a href="log_out.php">Logga ut</a></li>
+							<li><a href="puppy/?logOut">Logga ut</a></li>
 						<?php } ?>
 
 					</ul>

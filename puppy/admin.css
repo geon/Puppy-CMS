@@ -1,0 +1,19 @@
+body{
+	margin: 0px;
+	background: #eee;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+form{
+	width: 200px;
+	margin: 200px auto;
+}
+
+input{
+	width: 100%;
+}
+
+input.wwSubmitButton{
+	float: right;
+	width: auto;
+}
