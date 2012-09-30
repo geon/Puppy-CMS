@@ -6,8 +6,7 @@
 	</head>
 	<body>
 
-		<div id="<?php print($PageID); ?>">
-
+		<div class="main">
 			<div class="center header">
 				<ul class="menu">
 					<li><a href="./">About Us</a></li>
@@ -17,21 +16,21 @@
 					<?php if($Admin->IslogedIn()){ ?>
 						<li><a href="puppy/?logOut">Logga ut</a></li>
 					<?php } ?>
-
+	
 				</ul>
 			</div>
-
+	
 			<div id="content" class="center">
 				<?php renderContent(); ?>
 			</div>
+		</div>
 
-			<div class="footer">
-				<ul class="menu">
-					<li class="address" title="Show map"><a href="https://maps.google.com/maps?q=560+25+Bottnaryd,+Sweden&hl=en&ie=UTF8&sll=57.771788,13.825738&sspn=0.03996,0.033731&oq=560+25+bottnaryd&t=h&hnear=Bottnaryd,+J%C3%B6nk%C3%B6ping+County,+Sweden&z=15">Some Street, 560 25 Bottnaryd, Sweden</a></li>
-					<li class="phone" title="Call me">1234 - 567 890</li>
-					<li class="email" title="E-mail me"><a href="mailto:victor@topmost.se">victor@topmost.se</a></li>
-				</ul>
-			</div>
+		<div class="footer">
+			<ul class="menu">
+				<li class="address" title="Show map"><a href="https://maps.google.com/maps?q=560+25+Bottnaryd,+Sweden&hl=en&ie=UTF8&sll=57.771788,13.825738&sspn=0.03996,0.033731&oq=560+25+bottnaryd&t=h&hnear=Bottnaryd,+J%C3%B6nk%C3%B6ping+County,+Sweden&z=15">Some Street, 560 25 Bottnaryd, Sweden</a></li>
+				<li class="phone" title="Call us">1234 - 567 890</li>
+				<li class="email" title="E-mail us"><a href="mailto:victor@topmost.se">victor@topmost.se</a></li>
+			</ul>
 		</div>
 	</body>
 </html>
