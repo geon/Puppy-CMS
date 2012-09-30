@@ -3,67 +3,67 @@
 	require_once('wwForm.php');
 
 	require_once('class_login.php');
-	$Admin = new cLogin('admin');
-	if(!$Admin->IsLogedIn()) die('Not logged in.');
+	$admin = new LogIn('admin');
+	if (!$admin->isLoggedIn()) die('Not logged in.');
 
-	if(!isset($_GET['ID'])) die('No ID');
-	$ContentID = $_GET['ID'];
+	if (!isset($_GET['ID'])) die('No ID');
+	$contentID = $_GET['ID'];
 
-	class cEditForm extends wwFormBase{
-		function Populate(){
-			global $ContentID;
+	class EditForm extends wwFormBase{
+		function populate() {
+			global $contentID;
 
-			$Meta = array_merge(
+			$meta = array_merge(
 				array(
-					'Title' => '',
-					'Keywords' => '',
-					'Description' => '',
-					'ContentType' => 'HTML',
+					'title' => '',
+					'keywords' => '',
+					'description' => '',
+					'contentType' => 'HTML',
 				),
-				(array) json_decode(@file_get_contents('pages/'.$ContentID.'_META'), true)
+				(array) json_decode(@file_get_contents('pages/'.$contentID.'_META'), true)
 			);
-			$this->Elements[] = new wwText('Title', 'Title:', false, $Meta['Title']);
-			$this->Elements[] = new wwText('Keywords', 'Keywords:', false, $Meta['Keywords']);
-			$this->Elements[] = new wwText('Description', 'Description:', false, $Meta['Description']);
-			$this->Elements[] = new wwSelectBox('ContentType', 'Content Type:', array(
-				array('Title'=>'Plain Text',	'Value'=>'plaintext'),
-				array('Title'=>'HTML',			'Value'=>'HTML'),
-				array('Title'=>'PHP',			'Value'=>'PHP')
-			), $Meta['ContentType']);
+			$this->elements[] = new wwText('title', 'Title:', false, $meta['title']);
+			$this->elements[] = new wwText('keywords', 'Keywords:', false, $meta['keywords']);
+			$this->elements[] = new wwText('description', 'Description:', false, $meta['description']);
+			$this->elements[] = new wwSelectBox('contentType', 'Content Type:', array(
+				array('title'=>'Plain Text',	'value'=>'plaintext'),
+				array('title'=>'HTML',			'value'=>'HTML'),
+				array('title'=>'PHP',			'value'=>'PHP')
+			), $meta['contentType']);
 
 			$templates = array();
 			if ($handle = opendir('templates')) {
 				while (false !== ($entry = readdir($handle))) {
 					if ($entry != "." && $entry != ".." && is_dir('templates/'.$entry)) {
 
-						$templates[] = array('Title' => $entry, 'Value' => array('Template' => $entry));
+						$templates[] = array('title' => $entry, 'value' => array('template' => $entry));
 
 						$variations = json_decode(file_get_contents('templates/'.$entry.'/variations.json'), true);
-						foreach($variations as $variationTitle => $variationFileName){
-							$templates[] = array('Title' => $entry.' - '.$variationTitle, 'Value' => array('Template' => $entry, 'Variation' => $variationFileName));
+						foreach ($variations as $variationTitle => $variationFileName) {
+							$templates[] = array('title' => $entry.' - '.$variationTitle, 'value' => array('template' => $entry, 'variation' => $variationFileName));
 						}
 					}
 				}
 				closedir($handle);
 			}
 			
-			$this->Elements[] = new wwSelectBox('Template', 'Template:', $templates,  array('Template' => $Meta['Template'], 'Variation' => $Meta['Variation']));
+			$this->elements[] = new wwSelectBox('template', 'Template:', $templates, array('template' => $meta['template'], 'variation' => $meta['variation']));
 
-			$this->Elements[] = new wwText('Content', 'Sidinnehåll:', true, @file_get_contents('pages/'.$ContentID));
+			$this->elements[] = new wwText('Content', 'Sidinnehåll:', true, @file_get_contents('pages/'.$contentID));
 
-			$this->Elements[] = new wwSubmitButton('OK', '&nbsp;&nbsp;OK&nbsp;&nbsp;');
+			$this->elements[] = new wwSubmitButton('OK', '&nbsp;&nbsp;OK&nbsp;&nbsp;');
 		}
-		function Process(){
-			global $ContentID;
-			$Reply = $this->GetReply();
+		function process() {
+			global $contentID;
+			$reply = $this->GetReply();
 
 			// Do the update.
-			file_put_contents('pages/'.$ContentID, $Reply['Content']);
-			$Reply['Variation'] = $Reply['Template']['Variation'];
-			$Reply['Template'] = $Reply['Template']['Template'];
-			unset($Reply['Content']);
-			unset($Reply['OK']);
-			file_put_contents('pages/'.$ContentID.'_META', json_encode($Reply));
+			file_put_contents('pages/'.$contentID, $reply['Content']);
+			$reply['variation'] = $reply['template']['variation'];
+			$reply['template'] = $reply['template']['template'];
+			unset($reply['Content']);
+			unset($reply['OK']);
+			file_put_contents('pages/'.$contentID.'_META', json_encode($reply));
 
 			// Close the dialog.
 			print('<script language="JavaScript">window.opener.location.reload(); window.opener.focus(); window.close();</script>');
@@ -71,8 +71,8 @@
 		}
 	}
 
-	$EditForm = new cEditForm();
-	$EditForm->Execute();
+	$editForm = new EditForm();
+	$editForm->execute();
 
 
 ?>
@@ -85,7 +85,7 @@
 	<body onload="JavaScript:window.resizeTo(320, 600);">
 
 		<?php
-			$EditForm->Render();
+			$editForm->render();
 		?>
 
 	</body>

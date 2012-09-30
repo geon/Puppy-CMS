@@ -3,34 +3,34 @@ body {
 	background-size: 30px 30px;
 	background-color: #111;
 	background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, .02) 25%, transparent 25%,
-	                  transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
-	                  transparent 75%, transparent);
+										transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
+										transparent 75%, transparent);
 	background-image: -moz-linear-gradient(-45deg, rgba(255, 255, 255, .02) 25%, transparent 25%,
-	                  transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
-	                  transparent 75%, transparent);
+										transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
+										transparent 75%, transparent);
 	background-image: -o-linear-gradient(-45deg, rgba(255, 255, 255, .02) 25%, transparent 25%,
-	                  transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
-	                  transparent 75%, transparent);
+										transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
+										transparent 75%, transparent);
 
 	background-image: linear-gradient(-45deg, rgba(255, 255, 255, .02) 25%, transparent 25%,
-	                  transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
-	                  transparent 75%, transparent);
+										transparent 50%, rgba(255, 255, 255, .02) 50%, rgba(255, 255, 255, .02) 75%,
+										transparent 75%, transparent);
 }
 
-div.main{
+div.main {
 	background: #111;
 	color: #bbb;
 }
 
-h1, h2, h3{
+h1, h2, h3 {
 	color: #666;
 }
 
 
-div.header ul.menu li a{
+div.header ul.menu li a {
 	color: #aaa;
 }
 
-div.header ul.menu li a:hover{
+div.header ul.menu li a:hover {
 	color: #fff;
 }
