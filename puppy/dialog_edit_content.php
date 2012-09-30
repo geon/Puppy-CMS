@@ -1,6 +1,6 @@
 <?php
 
-	require_once('class_ww.php');
+	require_once('wwForm.php');
 
 	require_once('class_login.php');
 	$Admin = new cLogin('admin');
@@ -25,7 +25,29 @@
 			$this->Elements[] = new wwText('Title', 'Title:', false, $Meta['Title']);
 			$this->Elements[] = new wwText('Keywords', 'Keywords:', false, $Meta['Keywords']);
 			$this->Elements[] = new wwText('Description', 'Description:', false, $Meta['Description']);
-			$this->Elements[] = new wwSelectBox('ContentType', 'Content Type:', array(array('Title'=>'Plain Text', 'Value'=>'plaintext'), array('Title'=>'HTML', 'Value'=>'HTML'), array('Title'=>'PHP', 'Value'=>'PHP')), $Meta['ContentType']);
+			$this->Elements[] = new wwSelectBox('ContentType', 'Content Type:', array(
+				array('Title'=>'Plain Text',	'Value'=>'plaintext'),
+				array('Title'=>'HTML',			'Value'=>'HTML'),
+				array('Title'=>'PHP',			'Value'=>'PHP')
+			), $Meta['ContentType']);
+
+			$templates = array();
+			if ($handle = opendir('templates')) {
+				while (false !== ($entry = readdir($handle))) {
+					if ($entry != "." && $entry != ".." && is_dir('templates/'.$entry)) {
+
+						$templates[] = array('Title' => $entry, 'Value' => array('Template' => $entry));
+
+						$variations = json_decode(file_get_contents('templates/'.$entry.'/variations.json'), true);
+						foreach($variations as $variationTitle => $variationFileName){
+							$templates[] = array('Title' => $entry.' - '.$variationTitle, 'Value' => array('Template' => $entry, 'Variation' => $variationFileName));
+						}
+					}
+				}
+				closedir($handle);
+			}
+			
+			$this->Elements[] = new wwSelectBox('Template', 'Template:', $templates,  array('Template' => $Meta['Template'], 'Variation' => $Meta['Variation']));
 
 			$this->Elements[] = new wwText('Content', 'Sidinnehåll:', true, @file_get_contents('pages/'.$ContentID));
 
@@ -37,6 +59,8 @@
 
 			// Do the update.
 			file_put_contents('pages/'.$ContentID, $Reply['Content']);
+			$Reply['Variation'] = $Reply['Template']['Variation'];
+			$Reply['Template'] = $Reply['Template']['Template'];
 			unset($Reply['Content']);
 			unset($Reply['OK']);
 			file_put_contents('pages/'.$ContentID.'_META', json_encode($Reply));
@@ -56,9 +80,9 @@
 	<head>
 		<title>Admin</title>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8">
-		<link rel="stylesheet" title="Standard" href="design/style.css" media="screen">	
+		<link rel="stylesheet" title="Standard" href="wwForm.css" media="screen">	
 	</head>
-	<body onload="JavaScript:window.resizeTo(800, 600);">
+	<body onload="JavaScript:window.resizeTo(320, 600);">
 
 		<?php
 			$EditForm->Render();

@@ -3,6 +3,9 @@
 	<head>
 		<?php renderHead(); ?>
 		<link rel="stylesheet" title="Standard" href="puppy/templates/Crisp/main.css" media="screen" />
+		<?php if(!empty($Meta['Variation'])){ ?>
+			<link rel="stylesheet" title="Standard" href="puppy/templates/Crisp/<?= $Meta['Variation'] ?>" media="screen" />
+		<?php } ?>
 	</head>
 	<body>
 

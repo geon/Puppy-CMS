@@ -1,0 +1,61 @@
+form.wwForm{
+	margin: 0 0 50px 0;
+}
+
+form.wwForm ul.InputList{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+form.wwForm ul.InputList li.Input{
+	margin: 10px 0;
+	padding: 0;
+}
+form.wwForm ul.InputList li.Input label{
+	display: block;
+}
+form.wwForm ul.InputList li.wwCheckBox label{
+	display: inline;
+}
+form.wwForm ul.InputList li.wwCheckBox input{
+	width: auto;
+}
+form.wwForm ul.InputList li.wwSubmitButton button{
+	cursor: pointer;
+}
+form.wwForm ul.InputList li.wwNumeric input{
+	text-align: right;
+}
+form.wwForm ul.InputList li.Input ul.wwCheckBoxList{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+form.wwForm ul.InputList li.Input ul.wwCheckBoxList li{
+	margin: 0;
+	padding: 0;
+}
+form.wwForm ul.InputList li.Input ul.wwCheckBoxList li input{
+	width: auto;
+}
+form.wwForm ul.InputList li.Input ul.wwCheckBoxList li label{
+	display: inline;
+}
+form.wwForm ul.InputList li.Input p.ErrorMessage{
+	color: red;
+	font-size: 80%;
+	margin-top: 0.5em;
+}
+/* The overall width is 300 px, including the default border. I'd like to keep the native look. */
+form.wwForm ul li select,
+form.wwForm ul li input{
+	width: 294px;
+}
+form.wwForm ul li textarea{
+	width: 294px;
+	height: 200px;
+}
+
+
+

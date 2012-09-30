@@ -3,7 +3,6 @@ body {
 	font-family: verdana, sans-serif;
 	font-size:100%;
 	line-height:1.125em; /* 16x1.125=18px */
-	color: #333;
 	
 	margin:0;
 	padding: 0;
@@ -28,6 +27,8 @@ body {
 
 div.main {
 	background: white;
+	color: #333;
+
 	margin: 0;
 	padding-top: 30px;
 	padding-bottom: 30px;
@@ -89,7 +90,7 @@ div.header ul.menu li a{
 	color: #333;
 }
 div.header ul.menu li a:hover{
-	color: rgb(100, 90, 2);
+	color: #aaa;
 }
 
 
