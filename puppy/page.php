@@ -12,7 +12,7 @@
 		}else{
 			$RealID = file_get_contents('redirects/'.$PageID);
 			header('HTTP/1.1 301 Moved Permanently');
-			header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/'.$RealID);
+			header('Location: http://'.$_SERVER['HTTP_HOST'].dirname($_SERVER['PHP_SELF']).'/../'.$RealID);
 			exit();
 		}
 			
