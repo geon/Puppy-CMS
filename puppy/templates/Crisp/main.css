@@ -61,7 +61,10 @@ p {
 }
 
 
-
+div.image p {
+	font-size: 75%;
+	text-align: right;
+}
 
 
 
