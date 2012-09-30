@@ -3,7 +3,7 @@
 	require_once('class_ww.php');
 
 	require_once('class_login.php');
-	$Admin = new cLogin('Admin');
+	$Admin = new cLogin('admin');
 	if(!$Admin->IsLogedIn()) die('Not logged in.');
 
 	if(!isset($_GET['ID'])) die('No ID');
@@ -20,7 +20,7 @@
 					'Description' => '',
 					'ContentType' => 'HTML',
 				),
-				(array) unserialize(@file_get_contents('pages/'.$ContentID.'_META'))
+				(array) json_decode(@file_get_contents('pages/'.$ContentID.'_META'), true)
 			);
 			$this->Elements[] = new wwText('Title', 'Title:', false, $Meta['Title']);
 			$this->Elements[] = new wwText('Keywords', 'Keywords:', false, $Meta['Keywords']);
@@ -39,7 +39,7 @@
 			file_put_contents('pages/'.$ContentID, $Reply['Content']);
 			unset($Reply['Content']);
 			unset($Reply['OK']);
-			file_put_contents('pages/'.$ContentID.'_META', serialize($Reply));
+			file_put_contents('pages/'.$ContentID.'_META', json_encode($Reply));
 
 			// Close the dialog.
 			print('<script language="JavaScript">window.opener.location.reload(); window.opener.focus(); window.close();</script>');

@@ -19,12 +19,12 @@
 	// Read the metadata, overwriting the defaults, if defined.
 	$Meta = array_merge(
 		array(
-			'Title' => 'Puppy, the simplistic PHP CMS.',
-			'Keywords' => 'CMS, PHP, simplistic',
-			'Description' => 'A pretty nice and VERY simplistic CMS.',
+			'Title' => '',
+			'Keywords' => '',
+			'Description' => '',
 			'ContentType' => 'HTML',
 		),
-		(array) unserialize(file_get_contents('pages/'.$PageID.'_META'))
+		(array) json_decode(file_get_contents('pages/'.$PageID.'_META'), true)
 	);
 
 	require_once('class_login.php');
@@ -32,6 +32,7 @@
 
 
 	function renderHead(){
+		global $Meta;
 		?>
 			<title><?php print(htmlspecialchars($Meta['Title'], ENT_QUOTES, 'UTF-8')); ?></title>
 			<meta name="keywords" content="<?php print($Meta['Keywords']); ?>" />
@@ -45,10 +46,10 @@
 		
 		if($Admin->IsLogedIn()){
 			if($PageID == '404'){
-				print('<p><a href="dialog_edit_content.php?ID='.rawurlencode($RequestedPageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Skapa "'.htmlspecialchars($RequestedPageID).'"…</a></p>');
+				print('<p><a href="puppy/dialog_edit_content.php?ID='.rawurlencode($RequestedPageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Skapa "'.htmlspecialchars($RequestedPageID).'"…</a></p>');
 			}
 
-			print('<p><a href="dialog_edit_content.php?ID='.rawurlencode($PageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Redigera text...</a></p>');
+			print('<p><a href="puppy/dialog_edit_content.php?ID='.rawurlencode($PageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Redigera text...</a></p>');
 		}
 
 		if($Meta['ContentType'] == 'PHP')

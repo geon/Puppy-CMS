@@ -6,7 +6,7 @@
 	</head>
 	<body>
 
-		<div id="<?php print(PAGE_ID); ?>">
+		<div id="<?php print($PageID); ?>">
 
 			<div class="center header">
 				<ul class="menu">
