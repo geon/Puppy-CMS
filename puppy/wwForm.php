@@ -216,6 +216,17 @@ class wwText extends wwFormElementBase{
   }
 }
 
+class wwSimplePasswordCheck extends wwText{
+  function __construct($Name, $Label, $ThePassword, $ErrorMessage = 'Wrong password.'){
+  	$this->ThePassword = $ThePassword;
+    parent::__construct($Name, $Label, false, '', '.*', $ErrorMessage, true, true);
+  }
+  function IsValid(){    
+    // Check only on server-side.
+    return isset($_POST[$this->Name]) && $_POST[$this->Name] === $this->ThePassword;
+  }
+}
+
 class wwEmail extends wwText{
   function __construct($Name, $Label, $PreSetValue = '', $ErrorMessage = 'Please enter a valid e-mail address.', $Required = false){
     parent::__construct($Name, $Label, false, $PreSetValue, '^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4})'.($Required ? '' : '?').'$', $ErrorMessage);

@@ -10,16 +10,16 @@
 	<body>
 
 		<div class="main">
+
+			<div class="center admin-controls">
+				<?php renderControls() ?>
+			</div>
+
 			<div class="center header">
 				<ul class="menu">
 					<li><a href="./">About Us</a></li>
-					<li><a href="lunch">Our Mission</a></li>
-					<li><a href="quinoa">Green Environment</a></li>
-					
-					<?php if($Admin->IslogedIn()){ ?>
-						<li><a href="puppy/?logOut">Logga ut</a></li>
-					<?php } ?>
-	
+					<li><a href="mission">Our Mission</a></li>
+					<li><a href="environment">Green Environment</a></li>
 				</ul>
 			</div>
 	

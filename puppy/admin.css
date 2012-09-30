@@ -4,16 +4,7 @@ body{
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
-form{
-	width: 200px;
+form.wwForm{
+	width: 300px;
 	margin: 200px auto;
-}
-
-input{
-	width: 100%;
-}
-
-input.wwSubmitButton{
-	float: right;
-	width: auto;
 }

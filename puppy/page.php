@@ -41,17 +41,22 @@
 		<?php
 	}
 
-	function renderContent(){
-		global $Admin, $PageID, $RequestedPageID, $Meta;
+	function renderControls(){
+		global $Admin, $PageID, $RequestedPageID;
 		
 		if($Admin->IsLogedIn()){
+
+			print('<p><a href="puppy/?logOut">Log out</a></p>');
+			print('<p><a href="puppy/dialog_edit_content.php?ID='.rawurlencode($PageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Edit content...</a></p>');
 			if($PageID == '404'){
-				print('<p><a href="puppy/dialog_edit_content.php?ID='.rawurlencode($RequestedPageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Skapa "'.htmlspecialchars($RequestedPageID).'"…</a></p>');
+				print('<p><a href="puppy/dialog_edit_content.php?ID='.rawurlencode($RequestedPageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Create "'.htmlspecialchars($RequestedPageID).'"...</a></p>');
 			}
-
-			print('<p><a href="puppy/dialog_edit_content.php?ID='.rawurlencode($PageID).'" onclick="window.open(this.href, \'\',\'status=0,scrollbars=yes,resizable=yes,modal,dialog,width=800,height=600\'); return false;">Redigera text...</a></p>');
 		}
-
+	}
+	
+	function renderContent(){
+		global $PageID, $Meta;
+		
 		if($Meta['ContentType'] == 'PHP')
 			require('pages/'.$PageID);
 		else{

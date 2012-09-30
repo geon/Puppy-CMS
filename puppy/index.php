@@ -1,7 +1,7 @@
 <?php
 
 	require_once('class_login.php');
-	require_once('class_ww.php');
+	require_once('wwForm.php');
 
 
 	$Admin = new cLogIn('admin');
@@ -13,7 +13,7 @@
 
 	class cAdminLoginForm extends wwFormBase{
 		function Populate(){
-			$this->Elements[] = new wwPassWord('p', 'Password:', 'password');
+			$this->Elements[] = new wwSimplePasswordCheck('p', 'Password:', 'password');
 			$this->Elements[] = new wwSubmitButton('s', 'Login');
 		}
 		function Process(){
@@ -34,6 +34,7 @@
 	<head>
 		<title>Login</title>
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<link rel="stylesheet" title="Standard" href="wwForm.css" media="screen" />
 		<link rel="stylesheet" title="Standard" href="admin.css" media="screen" />
 	</head>
 	<body>
