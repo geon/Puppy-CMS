@@ -1,4 +1,4 @@
 RewriteEngine On 
 
 # nice-url -> puppy/page.php?ID=nice-url
-RewriteRule ^([-a-z]*)$ puppy/page.php?ID=$1
+RewriteRule ^([-a-zA-Z0-9]*)$ puppy/page.php?ID=$1
